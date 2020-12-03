@@ -6,9 +6,8 @@ import (
 	"aoc_2020/utils"
 )
 
-var (
+const (
 	TargetSum int = 2020
-	FilePath string = "days/day1/data/input.txt"
 )
 
 func findPair(is []int, target int) (int, int) {
@@ -45,8 +44,8 @@ func findTriplet(is []int, target int) (int, int, int) {
 	return 0, 0, 0
 }
 
-func Execute() {
-	dat, err := ioutil.ReadFile(FilePath)
+func Execute(fp string) {
+	dat, err := ioutil.ReadFile(fp)
 	utils.Check(err)
 	is := utils.IntArrayFromBytes(dat, "\n")
 	x, y := findPair(is, TargetSum)
