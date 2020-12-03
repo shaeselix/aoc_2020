@@ -8,10 +8,6 @@ import (
 	"strconv"
 )
 
-var (
-	FilePath string = "days/day2/data/input.txt"
-)
-
 type Policy struct {
 	password string
 	letter string
@@ -78,8 +74,8 @@ func isValidP2(p Policy) (b bool) {
 	return p1 != p2
 }
 
-func Execute() {
-	dat, err := ioutil.ReadFile(FilePath)
+func Execute(fp string) {
+	dat, err := ioutil.ReadFile(fp)
 	utils.Check(err)
 	strs := utils.StrArrayFromBytes(dat, "\n")
 	ps := strArrayToPolicies(strs)

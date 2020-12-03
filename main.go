@@ -1,9 +1,9 @@
 package main
 
 import (
-	"aoc_2020/days/day2"
+	"aoc_2020/days/day3"
 )
 
 func main () {
-	day2.Execute()
+	day3.Execute("data/3.txt")
 }
