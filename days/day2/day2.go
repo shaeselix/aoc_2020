@@ -2,7 +2,6 @@ package day2
 
 import (
 	"fmt"
-	"io/ioutil"
 	"aoc_2020/utils"
 	"strings"
 	"strconv"
@@ -75,9 +74,7 @@ func isValidP2(p Policy) (b bool) {
 }
 
 func Execute(fp string) {
-	dat, err := ioutil.ReadFile(fp)
-	utils.Check(err)
-	strs := utils.StrArrayFromBytes(dat, "\n")
+	strs := utils.ReadFileAsStrArray(fp, "\n")
 	ps := strArrayToPolicies(strs)
 	fmt.Println(countValids(ps, isValidP1))
 	fmt.Println(countValids(ps, isValidP2))
