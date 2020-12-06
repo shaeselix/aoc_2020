@@ -2,7 +2,6 @@ package day3
 
 import (
 	"fmt"
-	"io/ioutil"
 	"aoc_2020/utils"
 )
 
@@ -78,9 +77,7 @@ func multiSlopeProduct(b board, ss []slope) int {
 }
 
 func Execute(fp string) {
-	dat, err := ioutil.ReadFile(fp)
-	utils.Check(err)
-	strs := utils.StrArrayFromBytes(dat, "\n")
+	strs := utils.ReadFileAsStrArray(fp, "\n")
 	b := strArrayToBoard(strs)
 	ps := b.traverse(slope{3, 1})
 	ts := b.countTrees(ps)

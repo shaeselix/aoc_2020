@@ -2,7 +2,6 @@ package day4
 
 import (
 	"fmt"
-	"io/ioutil"
 	"aoc_2020/utils"
 	"strings"
 	"strconv"
@@ -169,9 +168,7 @@ func countValidPassports(rfps []rfpassport) int {
 }
 
 func Execute(fp string) {
-	dat, err := ioutil.ReadFile(fp)
-	utils.Check(err)
-	strs := utils.StrArrayFromBytes(dat, "\n\n")
+	strs := utils.ReadFileAsStrArray(fp, "\n\n")
 	ps := strArrayToPassports(strs)
 	c1, rfps := countPassportsWithRequiredFields(ps)
 	fmt.Println(c1)
