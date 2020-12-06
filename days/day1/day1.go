@@ -23,16 +23,6 @@ func findPair(is []int, target int) (int, int) {
 	return 0, 0
 }
 
-func removeItem(is []int, item int) []int {
-	for i, v := range is {
-		if v == item {
-			is[i] = is[len(is) - 1]
-			return is[:len(is) - 1]
-		}
-	}
-	return is
-}
-
 func findTriplet(is []int, target int) (int, int, int) {
 	for _, v := range is {
 		isv := utils.RemoveItem(is, v)

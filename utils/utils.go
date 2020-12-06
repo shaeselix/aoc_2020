@@ -3,6 +3,7 @@ package utils
 import (
 	"strings"
 	"strconv"
+	"io/ioutil"
 )
 
 func Check(e error) {
@@ -27,6 +28,12 @@ func IntArrayFromBytes(dat []byte, splitstr string) []int {
 		}
 	}
 	return is
+}
+
+func ReadFileAsStrArray(fp string, splitstr string) []string {
+	dat, err := ioutil.ReadFile(fp)
+	Check(err)
+	return StrArrayFromBytes(dat, splitstr)
 }
 
 func RemoveItem(is []int, item int) []int {
