@@ -1,9 +1,14 @@
 package main
 
 import (
-	"aoc_2020/days/day5"
+	"aoc_2020/days"
+)
+
+const (
+	day int = 6
+	dataDir string = "data/"
 )
 
 func main () {
-	day5.Execute("data/5.txt")
+	days.ExecuteDay(day, dataDir)
 }
