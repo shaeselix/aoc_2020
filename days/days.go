@@ -1,7 +1,7 @@
 package days
 
 import (
-	"fmt"
+	"aoc_2020/utils"
 	"aoc_2020/days/day1"
 	"aoc_2020/days/day2"
 	"aoc_2020/days/day3"
@@ -13,7 +13,6 @@ import (
 )
 
 var (
-	dataFileFormat string = "%d.txt"
 	DayFns = map[int]func(string) {
 		1: day1.Execute,
 		2: day2.Execute,
@@ -27,7 +26,7 @@ var (
 )
 
 func ExecuteDay(day int, datadir string) {
-	file := fmt.Sprintf(dataFileFormat, day)
-	fp := fmt.Sprintf("%s%s", datadir, file)
+	utils.DownloadFile(day, datadir, true)
+	fp := utils.GetFileName(day, datadir)
 	DayFns[day](fp)
 }
