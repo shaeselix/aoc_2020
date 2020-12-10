@@ -36,6 +36,12 @@ func ReadFileAsStrArray(fp string, splitstr string) []string {
 	return StrArrayFromBytes(dat, splitstr)
 }
 
+func ReadFileAsIntArray(fp string, splitstr string) []int {
+	dat, err := ioutil.ReadFile(fp)
+	Check(err)
+	return IntArrayFromBytes(dat, splitstr)
+}
+
 func RemoveItem(is []int, item int) []int {
 	for i, v := range is {
 		if v == item {
