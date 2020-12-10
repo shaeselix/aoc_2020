@@ -10,6 +10,7 @@ import (
 	"aoc_2020/days/day6"
 	"aoc_2020/days/day7"
 	"aoc_2020/days/day8"
+	"aoc_2020/days/day9"
 )
 
 var (
@@ -22,11 +23,12 @@ var (
 		6: day6.Execute,
 		7: day7.Execute,
 		8: day8.Execute,
+		9: day9.Execute,
 	}
 )
 
 func ExecuteDay(day int, datadir string) {
-	utils.DownloadFile(day, datadir, true)
+	utils.DownloadFile(day, datadir, false)
 	fp := utils.GetFileName(day, datadir)
 	DayFns[day](fp)
 }

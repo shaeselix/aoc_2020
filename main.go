@@ -5,7 +5,7 @@ import (
 )
 
 const (
-	day int = 1
+	day int = 9
 	dataDir string = "data/"
 )
 
