@@ -36,9 +36,9 @@ func contiguousSum(is []int, s int) []int {
 	return is[i:j]
 }
 
-func csProduct(cs []int, s int) int {
-	max := 0
-	min := s
+func csProduct(cs []int) int {
+	max := cs[0]
+	min := cs[0]
 	for _, x := range cs {
 		if x > max {
 			max = x
@@ -55,6 +55,6 @@ func Execute(fp string) {
 	nv := firstNonValid(is, preamble)
 	fmt.Println(nv)
 	cs := contiguousSum(is, nv)
-	csp := csProduct(cs, nv)
+	csp := csProduct(cs)
 	fmt.Println(csp)
 }
