@@ -28,27 +28,24 @@ func ncombs(is []int, maxdiff int) int {
 	sis := sort.IntSlice(is)
 	sis.Sort()
 	sis = append([]int{0}, sis...)
-	var recur func(i int, j int, cts map[int]int) int
-	recur = func(i int, j int, cts map[int]int) int {
-		if j == len(sis) {
-			return cts[sis[len(sis)-1]]
+	cts := map[int]int{0: 1}
+	for j, x := range sis {
+		i := j - maxdiff
+		if i <= 0 {
+			i = 0
 		}
 		s := 0
 		for i < j {
-			if sis[j] - sis[i] <= maxdiff {
-				s += cts[sis[i]]
+			if x - sis[i] <= maxdiff {
+				s += cts[i]
 			}
 			i++
 		}
-		cts[sis[j]] = s
-		j++
-		ni := j - maxdiff
-		if ni <= 0 {
-			ni = 0
+		if j > 0 {
+			cts[j] = s
 		}
-		return recur(ni, j, cts)
 	}
-	return recur(0, 1, map[int]int{0: 1})
+	return cts[len(sis)-1]
 }
 
 func Execute(fp string) {
