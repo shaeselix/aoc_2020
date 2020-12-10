@@ -3,12 +3,9 @@ package day10
 import (
 	"fmt"
 	"aoc_2020/utils"
-	"sort"
 )
 
-func ndiffs(is []int) int {
-	sis := sort.IntSlice(is)
-	sis.Sort()
+func ndiffs(sis []int) int {
 	w := 0
 	n1 := 0
 	n3 := 1
@@ -24,34 +21,35 @@ func ndiffs(is []int) int {
 	return n1 * n3
 }
 
-func ncombs(is []int, maxdiff int) int {
-	sis := sort.IntSlice(is)
-	sis.Sort()
+func ncombs(sis []int, maxdiff int) int {
 	sis = append([]int{0}, sis...)
-	cts := map[int]int{0: 1}
-	for j, x := range sis {
-		i := j - maxdiff
-		if i <= 0 {
-			i = 0
-		}
-		s := 0
-		for i < j {
-			if x - sis[i] <= maxdiff {
-				s += cts[i]
-			}
-			i++
-		}
-		if j > 0 {
-			cts[j] = s
-		}
+	cts := []int{1}
+	for j := 1;j < len(sis);j++ {
+		cts = append(cts, combstep(sis, j, maxdiff, cts))
 	}
 	return cts[len(sis)-1]
 }
 
+func combstep(sis []int, j int, maxdiff int, cts []int) int {
+	i := j - maxdiff
+	if i <= 0 {
+		i = 0
+	}
+	s := 0
+	for i < j {
+		if sis[j] - sis[i] <= maxdiff {
+			s += cts[i]
+		}
+		i++
+	}
+	return s
+}
+
 func Execute(fp string) {
 	is := utils.ReadFileAsIntArray(fp, "\n")
-	nd := ndiffs(is)
+	sis := utils.SortIntArray(is)
+	nd := ndiffs(sis)
 	fmt.Println(nd)
-	nc := ncombs(is, 3)
+	nc := ncombs(sis, 3)
 	fmt.Println(nc)
 }

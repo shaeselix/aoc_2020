@@ -4,6 +4,7 @@ import (
 	"strings"
 	"strconv"
 	"io/ioutil"
+	"sort"
 )
 
 func Check(e error) {
@@ -50,4 +51,10 @@ func RemoveItem(is []int, item int) []int {
 		}
 	}
 	return is
+}
+
+func SortIntArray(is []int) []int {
+	sis := sort.IntSlice(is)
+	sis.Sort()
+	return sis
 }
