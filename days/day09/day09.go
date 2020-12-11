@@ -1,9 +1,9 @@
-package day9
+package day09
 
 import (
 	"fmt"
 	"aoc_2020/utils"
-	"aoc_2020/days/day1"
+	"aoc_2020/days/day01"
 )
 
 const (
@@ -12,7 +12,7 @@ const (
 
 func firstNonValid(is []int, n int) int {
 	for i := range is {
-		a, b := day1.FindPair(is[i:i+n], is[i+n])
+		a, b := day01.FindPair(is[i:i+n], is[i+n])
 		if a == 0 && b == 0 {
 			return is[i+n]
 		}
