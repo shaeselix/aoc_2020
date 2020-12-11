@@ -2,30 +2,32 @@ package days
 
 import (
 	"aoc_2020/utils"
-	"aoc_2020/days/day1"
-	"aoc_2020/days/day2"
-	"aoc_2020/days/day3"
-	"aoc_2020/days/day4"
-	"aoc_2020/days/day5"
-	"aoc_2020/days/day6"
-	"aoc_2020/days/day7"
-	"aoc_2020/days/day8"
-	"aoc_2020/days/day9"
+	"aoc_2020/days/day01"
+	"aoc_2020/days/day02"
+	"aoc_2020/days/day03"
+	"aoc_2020/days/day04"
+	"aoc_2020/days/day05"
+	"aoc_2020/days/day06"
+	"aoc_2020/days/day07"
+	"aoc_2020/days/day08"
+	"aoc_2020/days/day09"
 	"aoc_2020/days/day10"
+	"aoc_2020/days/day11"
 )
 
 var (
 	DayFns = map[int]func(string) {
-		1: day1.Execute,
-		2: day2.Execute,
-		3: day3.Execute,
-		4: day4.Execute,
-		5: day5.Execute,
-		6: day6.Execute,
-		7: day7.Execute,
-		8: day8.Execute,
-		9: day9.Execute,
+		1: day01.Execute,
+		2: day02.Execute,
+		3: day03.Execute,
+		4: day04.Execute,
+		5: day05.Execute,
+		6: day06.Execute,
+		7: day07.Execute,
+		8: day08.Execute,
+		9: day09.Execute,
 		10: day10.Execute,
+		11: day11.Execute,
 	}
 )
 
