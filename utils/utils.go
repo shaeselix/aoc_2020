@@ -18,14 +18,18 @@ func StrArrayFromBytes(dat []byte, splitstr string) []string {
 	return strings.Split(stripped, splitstr)
 }
 
+func StrToInt(s string) int {
+	i, err := strconv.Atoi(s)
+	Check(err)
+	return i
+}
+
 func IntArrayFromBytes(dat []byte, splitstr string) []int {
 	strs := StrArrayFromBytes(dat, splitstr)
 	is := make([]int, 0)
 	for _, v := range strs {
 		if len(v) > 0 {
-			i, err := strconv.Atoi(v)
-			Check(err)
-			is = append(is, i)
+			is = append(is, StrToInt(v))
 		}
 	}
 	return is
