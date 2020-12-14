@@ -3,7 +3,6 @@ package day13
 import (
 	"fmt"
 	"aoc_2020/utils"
-	"strconv"
 	"strings"
 	"math"
 )
@@ -17,18 +16,12 @@ type bus struct {
 	ind int
 }
 
-func strToInt(s string) int {
-	i, err := strconv.Atoi(s)
-	utils.Check(err)
-	return i
-}
-
 func strToBuses(s string) []bus {
 	sps := strings.Split(s, ",")
 	bs := []bus{}
 	for j, sp := range sps {
 		if sp != "x" {
-			b := bus{strToInt(sp), j}
+			b := bus{utils.StrToInt(sp), j}
 			bs = append(bs, b)
 		}
 	}
@@ -76,7 +69,7 @@ func itercon(bs []bus) int {
 
 func Execute(fp string) {
 	ss := utils.ReadFileAsStrArray(fp, "\n")
-	t := strToInt(ss[0])
+	t := utils.StrToInt(ss[0])
 	bs := strToBuses(ss[1])
 	bb, mw := soonestBus(t, bs)
 	fmt.Println(bb*mw)
