@@ -15,6 +15,7 @@ import (
 	"aoc_2020/days/day11"
 	"aoc_2020/days/day12"
 	"aoc_2020/days/day13"
+	"aoc_2020/days/day14"
 )
 
 var (
@@ -32,6 +33,7 @@ var (
 		11: day11.Execute,
 		12: day12.Execute,
 		13: day13.Execute,
+		14: day14.Execute,
 	}
 )
 
